@@ -1,0 +1,6 @@
+{
+  "name": "Garden House",
+  "description": "Website giới thiệu nhà vườn xanh mát, dịch vụ thiết kế, thi công cảnh quan biệt thự vườn.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
