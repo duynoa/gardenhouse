@@ -10,15 +10,12 @@ export interface AuthResponse {
   token: string;
 }
 
-export type ContactStatus = 'pending' | 'read' | 'replied';
-
 export interface Contact {
   _id: string;
   name: string;
   email: string;
   phone: string;
   message: string;
-  status: ContactStatus;
   createdAt: string;
   updatedAt: string;
 }

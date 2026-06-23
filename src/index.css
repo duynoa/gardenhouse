@@ -32,3 +32,32 @@
 ::-webkit-scrollbar-thumb:hover {
   background: #a7bfab;
 }
+
+/* Rich text content styling */
+.project-rich-content img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 1rem;
+  margin: 1.5rem auto;
+  display: block;
+  box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+}
+.project-rich-content p {
+  margin-bottom: 1rem;
+  line-height: 1.75;
+}
+.project-rich-content strong {
+  font-weight: 700;
+  color: #101712; /* forest-950 */
+}
+.project-rich-content a {
+  color: #425f47; /* forest-600 */
+  text-decoration: underline;
+}
+.project-rich-content figure {
+  margin: 1.5rem 0;
+  width: 100% !important;
+}
+.project-rich-content figure img {
+  width: 100% !important;
+}

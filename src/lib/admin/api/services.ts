@@ -1,8 +1,7 @@
-import { apiClient, tokenStorage } from './client';
+import { apiClient } from './client';
 import {
   AuthResponse,
   Contact,
-  ContactStatus,
   Paginated,
   Project,
 } from '../types';
@@ -16,7 +15,6 @@ export interface ListContactsParams {
   page?: number;
   limit?: number;
   search?: string;
-  status?: ContactStatus;
 }
 
 export interface ListProjectsParams {
@@ -54,6 +52,14 @@ export const authApi = {
 };
 
 export const contactApi = {
+  async create(payload: { name: string; email: string; phone: string; message: string }): Promise<Contact> {
+    const { data } = await apiClient.post<{ success: true; data: Contact }>(
+      '/contacts',
+      payload,
+    );
+    return data.data;
+  },
+
   async list(params: ListContactsParams): Promise<Paginated<Contact>> {
     const { data } = await apiClient.get<{ success: true; data: Paginated<Contact> }>(
       '/contacts',
@@ -67,13 +73,6 @@ export const contactApi = {
     );
     return data.data;
   },
-  async updateStatus(id: string, status: ContactStatus): Promise<Contact> {
-    const { data } = await apiClient.patch<{ success: true; data: Contact }>(
-      `/contacts/${id}/status`,
-      { status },
-    );
-    return data.data;
-  },
   async remove(id: string): Promise<void> {
     await apiClient.delete(`/contacts/${id}`);
   },
@@ -84,6 +83,18 @@ export const projectApi = {
     const { data } = await apiClient.get<{ success: true; data: Paginated<Project> }>(
       '/projects',
       { params },
+    );
+    return data.data;
+  },
+  async get(id: string): Promise<Project> {
+    const { data } = await apiClient.get<{ success: true; data: Project }>(
+      `/projects/${id}`,
+    );
+    return data.data;
+  },
+  async getBySlug(slug: string): Promise<Project> {
+    const { data } = await apiClient.get<{ success: true; data: Project }>(
+      `/projects/slug/${slug}`,
     );
     return data.data;
   },

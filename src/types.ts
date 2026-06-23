@@ -11,12 +11,22 @@ export interface Service {
 
 export interface Project {
   id: string;
+  slug?: string;
   title: string;
   category: string;
   image: string;
   area: string;
   location: string;
   description: string;
+  gallery?: string[];
+  duration?: string;
+  costRange?: string;
+  materials?: string[];
+  features?: string[];
+  challenges?: string;
+  solutions?: string;
+  detailedSteps?: { stepName: string; stepDesc: string }[];
+  clientQuote?: { text: string; author: string; role: string };
 }
 
 export interface TeamMember {

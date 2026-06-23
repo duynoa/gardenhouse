@@ -1,85 +1,16 @@
-import { useState } from 'react';
-import { MapPin, Maximize, CheckCircle2, ShieldCheck } from 'lucide-react';
+import { useState, useEffect } from 'react';
+import { Link } from 'react-router-dom';
+import { MapPin, Maximize, CheckCircle2, ShieldCheck, Loader2 } from 'lucide-react';
+import { mapProjectToFE } from '../../lib/projectsData';
+import { projectApi } from '../../lib/admin/api/services';
 import { Project } from '../../types';
+import SEO from '../../components/SEO';
 
 export default function ProjectsPage() {
   const [selectedTag, setSelectedTag] = useState<string>('Tất cả');
-
-  // Toàn bộ dự án đã làm của đơn vị thi công bình dân
-  const allProjects: Project[] = [
-    {
-      id: 'p1',
-      title: 'Thi Công Sân Vườn Nhà Mái Thái',
-      category: 'Nhà Vườn Thảm Cỏ Mộc Mạc',
-      image: 'https://images.unsplash.com/photo-1512917774080-9991f1c4c750?auto=format&fit=crop&w=1000&q=80',
-      area: '450m²',
-      location: 'Sóc Sơn, Hà Nội',
-      description: 'Dọn sạch mặt bằng thô, rải thảm cỏ nhung Nhật bọc quanh lối đi lát đá cuội xám chống trơn, đem lại không gian thoáng đãng sạch mát cho khoảng sân ngôi nhà cấp 4.'
-    },
-    {
-      id: 'p2',
-      title: 'Hồ Cá Koi Quê Em Tiểu Cảnh Cúc Lan',
-      category: 'Hồ cá Koi & Non Bộ xi măng',
-      image: 'https://images.unsplash.com/photo-1558905612-4ee4eb15891d?auto=format&fit=crop&w=1000&q=80',
-      area: '120m²',
-      location: 'Quận 12, TP. Hồ Chí Minh',
-      description: 'Sắp sỏi bọc bờ ao, đắp tiểu cảnh vách núi xi măng mini kết hợp thả chép rực rỡ và trồng cỏ bụi xanh mỡ màng đọng sương dọn mát góc hiên.'
-    },
-    {
-      id: 'p3',
-      title: 'Nhà Vườn Ao Cá Cây Ăn Quả Sum Suê',
-      category: 'Vườn Cây Ăn Quả & Luống Rau',
-      image: 'https://images.unsplash.com/photo-1585320806297-9794b3e4eeae?auto=format&fit=crop&w=1000&q=80',
-      area: '800m²',
-      location: 'Hòa Lạc, Hà Nội',
-      description: 'Quy hoạch vùng trồng hai đồi bưởi Diễn trĩu quả kết hợp gieo rau muống đỏ, mồng tơi ta tươm tất bép xanh phục vụ bữa cơm dân dã tươi mướt cho gia đình.'
-    },
-    {
-      id: 'p4',
-      title: 'Tiểu Cảnh Lan Tre Ban Công Chung Cư',
-      category: 'Tiểu cảnh Góc Sân & Ban công',
-      image: 'https://images.unsplash.com/photo-1507089947368-19c1da9775ae?auto=format&fit=crop&w=1000&q=80',
-      area: '15m²',
-      location: 'Vinhomes Ocean Park, Gia Lâm',
-      description: 'Rải bửng sỏi dăm trắng tinh tươm hắt sáng nhẹ, treo các giỏ phong lan ta và lắp giàn nứa leo hoa giấy vừa gọn gàng vừa rực rỡ gió thông.'
-    },
-    {
-      id: 'p5',
-      title: 'Nhà Cấp 4 Mái Ngói Đẹp Bình Yên',
-      category: 'Nhà Vườn Thảm Cỏ Mộc Mạc',
-      image: 'https://images.unsplash.com/photo-1540555700478-4be289fbecef?auto=format&fit=crop&w=1000&q=80',
-      area: '250m²',
-      location: 'Sa Pa, Lào Cai',
-      description: 'Rải sỏi núi, cắm khóm hoa hướng dương vàng hoe cùng bồn sắn nhỏ bao quanh bậc đá mộc sần dạo mát đón mây đèo trong lành thơ mộng.'
-    },
-    {
-      id: 'p6',
-      title: 'Ao Chòi Mái Lá Đón Gió Mát Chiều Quê',
-      category: 'Hồ cá Koi & Non Bộ xi măng',
-      image: 'https://images.unsplash.com/photo-1466692476868-aef1dfb1e735?auto=format&fit=crop&w=1000&q=80',
-      area: '200m²',
-      location: 'Huyện Củ Chi, TP. Hồ Chí Minh',
-      description: 'Xây chòi hóng mát khung tre lợp lá dừa nước dân dã kề cận hồ lắng chống phèn bơi lấp trong vắt. Chốn tĩnh tại nghỉ chân cực kỳ thảnh thơi.'
-    },
-    {
-      id: 'p7',
-      title: 'Cải Tạo Thảm Cỏ Lối Đi Nhà Ống Phố Hẹp',
-      category: 'Nhà Vườn Thảm Cỏ Mộc Mạc',
-      image: 'https://images.unsplash.com/photo-1416879595882-3373a0480b5b?auto=format&fit=crop&w=1000&q=80',
-      area: '60m²',
-      location: 'Thanh Trì, Hà Nội',
-      description: 'Tận dụng hành lang lối đi nhỏ bên sườn nhà ống bọc cỏ lá tre thô bền bỉ chịu dẫm đạp, rải thạch mộc đi bước êm chân rôm rả.'
-    },
-    {
-      id: 'p8',
-      title: 'Hòn Non Bộ Xi Măng Nuôi Cá Trê Ta',
-      category: 'Hồ cá Koi & Non Bộ xi măng',
-      image: 'https://images.unsplash.com/photo-1508873696983-2df519f0397e?auto=format&fit=crop&w=1000&q=80',
-      area: '45m²',
-      location: 'Ý Yên, Nam Định',
-      description: 'Vừa trang trí tạo dòng chảy róc rách phong thủy vừa làm ao nhỏ cho các cụ nuôi vui cá trắm cá trê, đá đắp tay tỉa tót rất công phu dân dã mộc dày.'
-    }
-  ];
+  const [projects, setProjects] = useState<Project[]>([]);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState<string | null>(null);
 
   const tags = [
     'Tất cả',
@@ -89,12 +20,34 @@ export default function ProjectsPage() {
     'Tiểu cảnh Góc Sân & Ban công'
   ];
 
+  useEffect(() => {
+    async function fetchProjects() {
+      try {
+        setLoading(true);
+        const data = await projectApi.list({ limit: 100 });
+        const mapped = data.items.map(mapProjectToFE);
+        setProjects(mapped);
+      } catch (err) {
+        console.error('Lỗi khi tải danh sách dự án:', err);
+        setError('Có lỗi xảy ra khi tải danh sách công trình thực tế.');
+      } finally {
+        setLoading(false);
+      }
+    }
+    fetchProjects();
+  }, []);
+
   const filteredProjects = selectedTag === 'Tất cả'
-    ? allProjects
-    : allProjects.filter(p => p.category === selectedTag);
+    ? projects
+    : projects.filter(p => p.category === selectedTag);
 
   return (
     <div className="py-12 bg-forest-50/30">
+      <SEO 
+        title="Dự án hoàn thành" 
+        description="Các công trình sân vườn mái thái, hồ cá Koi tự chế vi sinh, hòn non bộ đắp xi măng bình dân đã hoàn thành tươm tất bởi tổ thợ Garden House."
+        keywords="dự án sân vườn, công trình hoàn thành, thảm cỏ nhung nhật, hồ cá koi tự chế, hòn non bộ xi măng"
+      />
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
 
         {/* Tiêu đề trang công trình */}
@@ -127,11 +80,26 @@ export default function ProjectsPage() {
         </div>
 
         {/* Danh sách lưới các công trình dự án */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-16">
-          {filteredProjects.map((project) => (
-            <div
+        {loading ? (
+          <div className="flex flex-col items-center justify-center py-20">
+            <Loader2 className="w-10 h-10 text-forest-600 animate-spin" />
+            <p className="text-gray-500 text-xs mt-3 font-semibold">Đang tải danh sách công trình...</p>
+          </div>
+        ) : error ? (
+          <div className="text-center py-16 bg-white rounded-2xl border border-forest-100 max-w-md mx-auto p-6 shadow-xs">
+            <p className="text-gray-500 text-sm">{error}</p>
+          </div>
+        ) : filteredProjects.length === 0 ? (
+          <div className="text-center py-16 bg-white rounded-2xl border border-forest-100 max-w-md mx-auto p-6 shadow-xs">
+            <p className="text-gray-500 text-sm">Chưa có công trình nào được công bố.</p>
+          </div>
+        ) : (
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-16">
+            {filteredProjects.map((project) => (
+              <Link
               key={project.id}
-              className="bg-white rounded-2xl overflow-hidden border border-forest-100 shadow-xs hover:shadow-lg transition-all duration-300 group flex flex-col justify-between"
+              to={`/projects/${project.slug || project.id}`}
+              className="bg-white rounded-2xl overflow-hidden border border-forest-100 shadow-xs hover:shadow-lg transition-all duration-300 group flex flex-col justify-between cursor-pointer"
             >
               <div>
                 <div className="relative aspect-4/3 overflow-hidden bg-gray-100">
@@ -179,9 +147,10 @@ export default function ProjectsPage() {
                 </span>
                 <span className="text-gray-400">Đã nghiệm thu</span>
               </div>
-            </div>
-          ))}
-        </div>
+            </Link>
+            ))}
+          </div>
+        )}
 
         {/* Cam kết của tổ thợ xứ quê */}
         <div className="bg-white rounded-3xl p-8 md:p-12 border border-forest-100 shadow-sm max-w-4xl mx-auto flex flex-col md:flex-row items-center gap-8 md:gap-12 animate-fade-in mb-8">

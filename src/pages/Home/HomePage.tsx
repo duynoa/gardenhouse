@@ -6,6 +6,7 @@ import {
   MapPin, Maximize, Eye, User, Landmark, Compass, Quote
 } from 'lucide-react';
 import { Project, Testimonial } from '../../types';
+import SEO from '../../components/SEO';
 
 export default function HomePage() {
   const [selectedTag, setSelectedTag] = useState<string>('Tất cả');
@@ -108,6 +109,11 @@ export default function HomePage() {
 
   return (
     <div className="bg-[#fcfdfc] text-gray-800">
+      <SEO 
+        title="Trang chủ" 
+        description="Garden House - Đơn vị thi công sân vườn, trải thảm cỏ nhung Nhật, đắp hòn non bộ xi măng và làm hồ cá cảnh giá rẻ bình dân, nhiệt tình, uy tín."
+        keywords="sân vườn bình dân, thảm cỏ nhung nhật, hồ cá koi tự lọc, hòn non bộ xi măng, thợ làm sân vườn quê"
+      />
       {/* 1. Hero Section */}
       <section className="relative min-h-[90vh] flex items-center bg-forest-950 overflow-hidden py-16 md:py-24">
         {/* Background Image Panel */}
@@ -118,8 +124,8 @@ export default function HomePage() {
             className="w-full h-full object-cover object-center opacity-30 transform scale-105"
             referrerPolicy="no-referrer"
           />
-          <div className="absolute inset-0 bg-gradient-to-r from-forest-950 via-forest-950/80 to-transparent"></div>
-          <div className="absolute inset-x-0 bottom-0 h-40 bg-gradient-to-t from-forest-50 to-transparent"></div>
+          <div className="absolute inset-0 bg-linear-to-r from-forest-950 via-forest-950/50 to-transparent"></div>
+          <div className="absolute inset-x-0 bottom-0 h-28 bg-linear-to-t from-[#FCFDFC] to-transparent"></div>
         </div>
 
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 w-full">
@@ -128,7 +134,7 @@ export default function HomePage() {
               initial={{ opacity: 0, y: 15 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6 }}
-              className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-forest-500/20 border border-forest-500/30 text-emerald-300 text-xs font-semibold tracking-wider uppercase"
+              className="w-fit inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-forest-500/20 border border-forest-500/30 text-emerald-300 text-xs font-semibold tracking-wider uppercase"
             >
               <Sparkles className="w-3.5 h-3.5" />
               <span>Thi Công Sân Vườn Tiểu Cảnh Giá Bình Dân</span>

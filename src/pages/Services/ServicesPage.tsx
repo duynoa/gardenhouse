@@ -7,6 +7,7 @@ import {
 } from 'lucide-react';
 import { Service } from '../../types';
 import { useCostCalculation } from '../../lib/costCalculationStore';
+import SEO from '../../components/SEO';
 
 export default function ServicesPage() {
   const navigate = useNavigate();
@@ -217,6 +218,11 @@ export default function ServicesPage() {
 
   return (
     <div className="bg-[#fcfdfc] py-16">
+      <SEO 
+        title="Dịch vụ & Dự toán" 
+        description="Các gói thi công thảm cỏ, đào hồ cá cảnh Koi lọc tự chế, đắp non bộ xi măng giá rẻ và bảng tính giá dự toán sơ bộ trực tuyến tiện lợi tại Garden House."
+        keywords="dự toán sân vườn, giá thi công cỏ nhung nhật, báo giá hồ cá koi tự chế, đắp hòn non bộ giá rẻ"
+      />
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Header section of services */}
         <div className="text-center max-w-3xl mx-auto flex flex-col gap-4 mb-20">
