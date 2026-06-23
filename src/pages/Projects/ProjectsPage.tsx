@@ -1,10 +1,19 @@
 import { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { MapPin, Maximize, CheckCircle2, ShieldCheck, Loader2 } from 'lucide-react';
-import { mapProjectToFE } from '../../lib/projectsData';
 import { projectApi } from '../../lib/admin/api/services';
-import { Project } from '../../types';
+import { Project } from '../../lib/admin/types';
 import SEO from '../../components/SEO';
+
+function extractImagesFromHtml(html: string): string[] {
+  const imgRegex = /<img[^>]+src="([^">]+)"/g;
+  const images: string[] = [];
+  let match;
+  while ((match = imgRegex.exec(html)) !== null) {
+    images.push(match[1]);
+  }
+  return images;
+}
 
 export default function ProjectsPage() {
   const [selectedTag, setSelectedTag] = useState<string>('Tất cả');
@@ -12,21 +21,12 @@ export default function ProjectsPage() {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
 
-  const tags = [
-    'Tất cả',
-    'Nhà Vườn Thảm Cỏ Mộc Mạc',
-    'Hồ cá Koi & Non Bộ xi măng',
-    'Vườn Cây Ăn Quả & Luống Rau',
-    'Tiểu cảnh Góc Sân & Ban công'
-  ];
-
   useEffect(() => {
     async function fetchProjects() {
       try {
         setLoading(true);
         const data = await projectApi.list({ limit: 100 });
-        const mapped = data.items.map(mapProjectToFE);
-        setProjects(mapped);
+        setProjects(data.items);
       } catch (err) {
         console.error('Lỗi khi tải danh sách dự án:', err);
         setError('Có lỗi xảy ra khi tải danh sách công trình thực tế.');
@@ -37,9 +37,11 @@ export default function ProjectsPage() {
     fetchProjects();
   }, []);
 
+  const tags = ['Tất cả', ...Array.from(new Set(projects.map(p => p.type)))];
+
   const filteredProjects = selectedTag === 'Tất cả'
     ? projects
-    : projects.filter(p => p.category === selectedTag);
+    : projects.filter(p => p.type === selectedTag);
 
   return (
     <div className="py-12 bg-forest-50/30">
@@ -95,24 +97,27 @@ export default function ProjectsPage() {
           </div>
         ) : (
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-16">
-            {filteredProjects.map((project) => (
+            {filteredProjects.map((project) => {
+              const gallery = extractImagesFromHtml(project.summary);
+              const coverImage = project.mainImage || gallery[0] || '';
+              return (
               <Link
-              key={project.id}
-              to={`/projects/${project.slug || project.id}`}
+              key={project._id}
+              to={`/projects/${project.slug || project._id}`}
               className="bg-white rounded-2xl overflow-hidden border border-forest-100 shadow-xs hover:shadow-lg transition-all duration-300 group flex flex-col justify-between cursor-pointer"
             >
               <div>
                 <div className="relative aspect-4/3 overflow-hidden bg-gray-100">
                   <img
-                    src={project.image}
-                    alt={project.title}
+                    src={coverImage}
+                    alt={project.name}
                     className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-108"
                     loading="lazy"
                     referrerPolicy="no-referrer"
                   />
                   <div className="absolute top-4 left-4">
                     <span className="bg-forest-900/90 backdrop-blur-xs text-emerald-400 font-semibold text-[11px] px-3 py-1 rounded-full uppercase tracking-wider">
-                      {project.category}
+                      {project.type}
                     </span>
                   </div>
                 </div>
@@ -121,22 +126,22 @@ export default function ProjectsPage() {
                   <div className="flex flex-wrap items-center gap-y-1 gap-x-3 text-xs font-semibold text-forest-600 mb-3">
                     <div className="flex items-center gap-1">
                       <MapPin className="w-3.5 h-3.5 text-forest-500" />
-                      <span>{project.location}</span>
+                      <span>{project.address}</span>
                     </div>
-                    <span className="text-gray-300 hidden sm:inline">|</span>
-                    <div className="flex items-center gap-1">
-                      <Maximize className="w-3.5 h-3.5 text-forest-500" />
-                      <span>{project.area}</span>
-                    </div>
+                    {project.completionYear && (
+                      <>
+                        <span className="text-gray-300 hidden sm:inline">|</span>
+                        <div className="flex items-center gap-1">
+                          <Maximize className="w-3.5 h-3.5 text-forest-500" />
+                          <span>{project.completionYear}</span>
+                        </div>
+                      </>
+                    )}
                   </div>
 
                   <h3 className="font-serif font-bold text-lg text-forest-950 mb-2 group-hover:text-forest-600 transition-colors">
-                    {project.title}
+                    {project.name}
                   </h3>
-
-                  <p className="text-gray-500 text-xs sm:text-sm leading-relaxed mb-4">
-                    {project.description}
-                  </p>
                 </div>
               </div>
 
@@ -148,7 +153,8 @@ export default function ProjectsPage() {
                 <span className="text-gray-400">Đã nghiệm thu</span>
               </div>
             </Link>
-            ))}
+              );
+            })}
           </div>
         )}
 

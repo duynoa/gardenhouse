@@ -1,6 +1,6 @@
+import { ChevronRight, Menu, PhoneCall, X } from 'lucide-react';
+import { AnimatePresence, motion } from 'motion/react';
 import { useState } from 'react';
-import { Leaf, Menu, X, PhoneCall, ChevronRight } from 'lucide-react';
-import { motion, AnimatePresence } from 'motion/react';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 
 type NavTarget = 'home' | 'about' | 'services' | 'projects' | 'contact';
@@ -56,17 +56,7 @@ export default function Header() {
             onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
             className="flex items-center gap-3 cursor-pointer group"
           >
-            <div className="w-11 h-11 rounded-xl bg-forest-600 flex items-center justify-center text-white shadow-md shadow-forest-200 transition-all duration-300 group-hover:bg-forest-500 group-hover:scale-105">
-              <Leaf className="w-6 h-6 animate-pulse" />
-            </div>
-            <div>
-              <span className="font-serif text-xl sm:text-2xl font-bold tracking-tight text-forest-900 block leading-none">
-                Garden House
-              </span>
-              <span className="text-[10px] uppercase font-semibold text-forest-500 tracking-[0.15em] block mt-1">
-                Sân Vườn Lành Nghề, Giá Bình Dân
-              </span>
-            </div>
+            <img src="/logo.png" alt="Garden House" width={60} height={60} className="rounded-lg"/>
           </Link>
 
           {/* Desktop Navigation */}
@@ -75,11 +65,10 @@ export default function Header() {
               <button
                 key={item.id}
                 onClick={() => handleNavClick(item.id)}
-                className={`relative py-2 font-medium transition-all duration-300 text-sm tracking-wide ${
-                  activePage === item.id
+                className={`relative py-2 font-medium transition-all duration-300 text-sm tracking-wide ${activePage === item.id
                     ? 'text-forest-600 font-semibold'
                     : 'text-gray-600 hover:text-forest-500'
-                }`}
+                  }`}
               >
                 {item.label}
                 {activePage === item.id && (
@@ -96,11 +85,11 @@ export default function Header() {
           {/* Contact CTA */}
           <div className="hidden lg:flex items-center gap-4">
             <a
-              href="tel:0988888888"
+              href="tel:0789490590"
               className="flex items-center gap-2 text-sm font-semibold text-forest-700 hover:text-forest-500 transition-colors"
             >
               <PhoneCall className="w-4 h-4 text-forest-500" />
-              <span>098.888.8888</span>
+              <span>078.949.0590</span>
             </a>
             <button
               onClick={handleBookSurvey}
@@ -114,7 +103,7 @@ export default function Header() {
           {/* Mobile Menu Trigger */}
           <div className="flex md:hidden items-center gap-3">
             <a
-              href="tel:0988888888"
+              href="tel:0789490590"
               className="w-10 h-10 rounded-xl bg-forest-50 flex items-center justify-center text-forest-700"
             >
               <PhoneCall className="w-4 h-4" />
@@ -158,11 +147,10 @@ export default function Header() {
                       handleNavClick(item.id);
                       setIsOpen(false);
                     }}
-                    className={`flex items-center justify-between py-3.5 px-4 rounded-xl text-left font-medium transition-all duration-200 ${
-                      activePage === item.id
+                    className={`flex items-center justify-between py-3.5 px-4 rounded-xl text-left font-medium transition-all duration-200 ${activePage === item.id
                         ? 'bg-forest-500 text-white'
                         : 'text-gray-700 hover:bg-forest-50'
-                    }`}
+                      }`}
                   >
                     <span>{item.label}</span>
                     <ChevronRight className="w-4 h-4 opacity-70" />
@@ -175,11 +163,11 @@ export default function Header() {
                   Liên hệ gấp
                 </p>
                 <a
-                  href="tel:0988888888"
+                  href="tel:0789490590"
                   className="flex items-center gap-3 text-forest-700 font-bold text-lg mb-4 px-2"
                 >
                   <PhoneCall className="w-5 h-5 text-forest-500" />
-                  <span>098.888.8888</span>
+                  <span>078.949.0590</span>
                 </a>
                 <button
                   onClick={() => {

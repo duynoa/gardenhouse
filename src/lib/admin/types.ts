@@ -25,12 +25,12 @@ export interface Project {
   name: string;
   slug: string;
   address: string;
-  completionYear: string;
+  completionYear?: string;
   type: string;
   summary: string;
   mainImage: string;
   createdAt: string;
-  updatedAt: string;
+  updatedAt?: string;
 }
 
 export interface Paginated<T> {

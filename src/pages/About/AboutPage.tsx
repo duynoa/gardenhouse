@@ -1,50 +1,51 @@
 import { useState } from 'react';
-import { ShieldCheck, Heart, Award, Compass, MessageSquare, Sparkles, Sprout, Briefcase, ArrowRight, ChevronDown } from 'lucide-react';
+import { Link } from 'react-router-dom';
+import { ShieldCheck, Heart, Award, Compass, ChevronDown, ArrowRight, Sparkles, Briefcase } from 'lucide-react';
 import SEO from '../../components/SEO';
 
 export default function AboutPage() {
   const [openFaq, setOpenFaq] = useState<number | null>(null);
 
   const stats = [
-    { value: '10+', label: 'Năm hoạt động', desc: 'Từ tổ thợ quê lập nghiệp năm 2015' },
-    { value: '500+', label: 'Khu vườn hoàn thiện', desc: 'Sân vườn tiểu cảnh lớn nhỏ toàn quốc' },
-    { value: '100%', label: 'Thật thà & Cam kết', desc: 'Đúng cây, đúng đá, báo giá minh bạch' },
-    { value: '3 - 6', label: 'Tháng bảo hành', desc: 'Hỗ trợ chăm sóc định kỳ cho đến khi cây bám rễ' }
+    { value: '8+', label: 'Năm hoạt động', desc: 'Từ đội thợ nề xây dựng năm 2017 tại Quảng Ngãi' },
+    { value: '200+', label: 'Công trình hoàn thành', desc: 'Nhà ở, biệt thự, công trình công cộng tại Quảng Ngãi và vùng lân cận' },
+    { value: '100%', label: 'Cam kết chất lượng', desc: 'Đúng tiến độ, đúng ngân sách, bảo hành dài hạn' },
+    { value: '3-12', label: 'Tháng bảo hành', desc: 'Tùy loại công trình và hạng mục thi công' }
   ];
 
   const steps = [
     {
       number: '01',
-      title: 'Khảo Sát Thực Địa',
-      desc: 'Chúng tôi đến tận nhà vườn, đo đạc thế đất, hướng nắng, hướng gió và lắng nghe ước muốn của gia chủ hoàn toàn miễn phí.',
+      title: 'Khảo Sát & Báo Giá',
+      desc: 'Chúng tôi đến tận công trình, đo đạc diện tích, kiểm tra nền móng và lắng nghe nhu cầu của gia chủ hoàn toàn miễn phí, sau đó gửi báo giá chi tiết trong 24 giờ.',
       icon: Compass,
       color: 'bg-emerald-50 text-emerald-700 border-emerald-100'
     },
     {
       number: '02',
-      title: 'Phác Thảo Sơ Đồ',
-      desc: 'Lập sơ đồ mặt bằng mộc mạc trên giấy, bố trí đá, hồ nước và chủng loại cây hợp phong thủy mà không tính phí thiết kế vẽ vời vẽ bóng.',
+      title: 'Ký Hợp Đồng',
+      desc: 'Hai bên thống nhất về phạm vi, tiến độ, chi phí và quy chuẩn kỹ thuật. Hợp đồng rõ ràng minh bạch, không phí ẩn, có điều khoản bảo hành cụ thể.',
       icon: Briefcase,
       color: 'bg-amber-50 text-amber-700 border-amber-100'
     },
     {
       number: '03',
-      title: 'Tuyển Lựa Cây & Đá',
-      desc: 'Đích thân thợ cả lựa chọn từng cây xanh khỏe mạnh tại vườn bản địa và săn tìm những viên đá cuội tự nhiên có dáng hình đẹp nhất.',
-      icon: Sprout,
-      color: 'bg-forest-50 text-forest-700 border-forest-100'
+      title: 'Thiết Kế Chi Tiết',
+      desc: 'Kỹ sư lập bản vẽ kỹ thuật, dự toán vật tư và phương án thi công cụ thể. Gửi chủ nhà duyệt trước khi triển khai xây dựng thực tế.',
+      icon: Briefcase,
+      color: 'bg-blue-50 text-blue-700 border-blue-100'
     },
     {
       number: '04',
-      title: 'Thi Công Thực Chiến',
-      desc: 'Đội thợ lành nghề tiến hành đào hồ cá Koi, lắp lọc vi sinh tự chế tiết kiệm và sắp xếp từng viên đá, bụi cây tỉ mỉ, chắc chắn.',
+      title: 'Thi Công Chuyên Nghiệp',
+      desc: 'Đội thợ lành nghề thi công đúng tiêu chuẩn, giám sát chặt chẽ từng hạng mục, cập nhật tiến độ thường xuyên cho gia chủ theo dõi.',
       icon: ShieldCheck,
       color: 'bg-blue-50 text-blue-700 border-blue-100'
     },
     {
       number: '05',
-      title: 'Bàn Giao & Hướng Dẫn',
-      desc: 'Vệ sinh sạch sẽ, nghiệm thu cùng chủ nhà, hướng dẫn kỹ thuật chăm sóc cây cỏ tự nhiên và kích hoạt gói bảo hành chu đáo.',
+      title: 'Nghiệm Thu & Bàn Giao',
+      desc: 'Kiểm tra chất lượng từng chi tiết cuối cùng, nghiệm thu cùng chủ nhà, bàn giao hồ sơ hoàn công đầy đủ và kích hoạt bảo hành chu đáo.',
       icon: Award,
       color: 'bg-purple-50 text-purple-700 border-purple-100'
     }
@@ -52,40 +53,40 @@ export default function AboutPage() {
 
   const faqs = [
     {
-      q: 'Garden House có tính phí thiết kế bản vẽ 3D trước khi thi công không?',
-      a: 'Không, chúng tôi tối ưu chi phí tối đa cho bạn bằng việc phác thảo ý tưởng và sơ đồ bố trí 2D trực tiếp tại khu đất hoàn toàn miễn phí. Chúng tôi không tính phí thiết kế vẽ phối cảnh 3D đắt đỏ.'
+      q: 'Công ty có hỗ trợ thiết kế bản vẽ kỹ thuật trước khi thi công không?',
+      a: 'Có, chúng tôi cung cấp bản vẽ thiết kế chi tiết bao gồm mặt bằng, mặt cắt và dự toán vật tư. Phí thiết kế được tính vào chi phí tổng thể nếu quý khách tiếp tục ký hợp đồng thi công.'
     },
     {
-      q: 'Chính sách bảo hành cây trồng sau khi bàn giao như thế nào?',
-      a: 'Tất cả cây trồng do Garden House cung cấp đều được bảo hành từ 3 đến 6 tháng. Nếu cây bị héo úa hoặc suy yếu do kỹ thuật trồng trong thời gian này, chúng tôi sẽ đến thay thế cây mới hoàn toàn miễn phí.'
+      q: 'Chính sách bảo hành công trình sau khi bàn giao như thế nào?',
+      a: 'Tùy loại công trình, chúng tôi cung cấp bảo hành từ 3 đến 12 tháng. Các hạng mục như nền móng, kết cấu bê tông được bảo hành dài hạn hơn. Nếu phát sinh lỗi kỹ thuật trong thời gian bảo hành, chúng tôi sẽ khắc phục hoàn toàn miễn phí.'
     },
     {
       q: 'Chi phí thi công trung bình khoảng bao nhiêu?',
-      a: 'Tùy thuộc vào diện tích và mong muốn của gia chủ. Nhờ sử dụng giống cây bản địa khỏe mạnh và nguyên liệu đá tự nhiên địa phương, chi phí của chúng tôi thường tiết kiệm hơn 30% so với thị trường.'
+      a: 'Chi phí phụ thuộc vào quy mô, loại công trình và vật tư lựa chọn. Chúng tôi cam kết báo giá minh bạch chi tiết từng hạng mục, không phí ẩn, giúp gia chủ kiểm soát ngân sách hiệu quả.'
     },
     {
-      q: 'Tổ thợ của Garden House nhận công trình ở khu vực nào?',
-      a: 'Chúng tôi nhận khảo sát và thi công trực tiếp tại địa phương và tất cả các tỉnh thành lân cận. Với các công trình lớn, tổ thợ sẵn sàng di chuyển xa để phục vụ bà con.'
+      q: 'Đội ngũ thi công của công ty nhận công trình ở khu vực nào?',
+      a: 'Chúng tôi nhận khảo sát và thi công trực tiếp tại TP. Quảng Ngãi và các huyện lân cận như Tư Nghĩa, Nghĩa Hà, Sơn Tịnh, Mộ Đức. Với các công trình lớn, đội thợ sẵn sàng di chuyển đến tận nơi để phục vụ khách hàng.'
     }
   ];
 
   return (
     <div className="bg-[#fcfdfc] py-16">
       <SEO 
-        title="Về chúng tôi" 
-        description="Garden House khởi nghiệp từ một tổ thợ quê lành nghề năm 2017. Chúng tôi cam kết làm việc bằng cái tâm, mang lại sân vườn xanh mát giá tốt nhất."
-        keywords="thợ vườn quê, đội ngũ garden house, thợ thi công thảm cỏ, thợ đắp non bộ xi măng"
+        title="Về chúng tôi"
+        description="Garden House - Đội ngũ xây dựng uy tín tại Quảng Ngãi với hơn 8 năm kinh nghiệm. Thi công nhà ở, biệt thự, công trình công cộng đúng tiến độ, chất lượng và giá hợp lý."
+        keywords="công ty xây dựng quảng ngãi, đội thợ nề quảng ngãi, thi công nhà ở quảng ngãi, xây dựng biệt thự quảng ngãi, sửa chữa nhà quảng ngãi"
       />
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Profile Header */}
         <div className="text-center max-w-3xl mx-auto flex flex-col gap-4 mb-20 animate-fade-in">
-          <span className="text-xs uppercase font-bold text-forest-600 tracking-[0.2em] block">Chúng Tôi Là Ai</span>
+          <span className="text-xs uppercase font-bold text-forest-600 tracking-[0.2em] block">Giới Thiệu</span>
           <h1 className="font-serif text-3xl sm:text-5xl font-bold tracking-tight text-forest-950">
-            Đội Ngũ Thợ Vườn <br />Người Quê Bình Dân & Thật Thà
+            Đội Ngũ Xây Dựng <br />Uy Tín Tại Quảng Ngãi
           </h1>
           <div className="w-16 h-1 bg-forest-400 mx-auto rounded-full"></div>
           <p className="text-gray-500 text-sm leading-relaxed max-w-2xl mx-auto">
-            Garden House khởi nghiệp từ một tổ thợ quê lành nghề, dạn dày sương gió từ năm 2015. Là những người thợ trực tiếp thi công tại công trường đầy nắng gió, chúng tôi tự hào mang đến các công trình sân vườn, hồ cá Koi, thảm cỏ mộc mạc bền đẹp với chi phí rẻ bình dân, vừa túi tiền của mọi nhà.
+            Chúng tôi khởi nghiệp với đội ngũ thợ nề lành nghề tại TP. Quảng Ngãi từ năm 2017. Là những người thợ trực tiếp thi công tại công trường, chúng tôi tự hào mang đến các công trình xây dựng chất lượng, đúng tiến độ với chi phí hợp lý, phục vụ người dân Quảng Ngãi và vùng lân cận.
           </p>
         </div>
 
@@ -94,18 +95,18 @@ export default function AboutPage() {
           <div className="relative group">
             <div className="absolute inset-0 bg-forest-600 rounded-3xl translate-x-4 translate-y-4 -z-10 opacity-15 group-hover:translate-x-6 group-hover:translate-y-6 transition-all duration-300"></div>
             <img
-              src="https://images.unsplash.com/photo-1466692476868-aef1dfb1e735?auto=format&fit=crop&w=1000&q=80"
-              alt="Our greenhouse design process"
+              src="https://images.unsplash.com/photo-1504307651254-35680f356dfd?auto=format&fit=crop&w=1000&q=80"
+              alt="Construction site team at work"
               className="rounded-3xl object-cover w-full aspect-4/3 shadow-lg"
               referrerPolicy="no-referrer"
             />
             <div className="absolute -bottom-6 -right-6 bg-white p-5 rounded-2xl shadow-lg border border-forest-100 flex items-center gap-3">
               <div className="w-12 h-12 rounded-xl bg-forest-500 flex items-center justify-center text-white">
-                <Sprout className="w-6 h-6 animate-bounce" />
+                <ShieldCheck className="w-6 h-6" />
               </div>
               <div>
-                <p className="text-xs text-gray-400 font-bold uppercase">Cam kết bảo vệ</p>
-                <p className="text-forest-900 font-bold text-sm">Hơn 500.000 cây xanh đã gieo</p>
+                <p className="text-xs text-gray-400 font-bold uppercase">Cam kết</p>
+                <p className="text-forest-900 font-bold text-sm">Hơn 200 công trình tại Quảng Ngãi</p>
               </div>
             </div>
           </div>
@@ -113,13 +114,13 @@ export default function AboutPage() {
           <div className="flex flex-col gap-6">
             <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-forest-100 text-forest-800 text-xs font-bold w-fit">
               <Sparkles className="w-3.5 h-3.5 text-forest-600" />
-              <span>Giá trị lưu giữ muôn đời</span>
+              <span>Giải pháp xây dựng toàn diện</span>
             </div>
             <h2 className="font-serif text-2xl sm:text-3.5xl font-bold text-forest-900 leading-tight">
-              Làm Việc Bằng Cái Tâm, Tiết Kiệm Tối Đa Cho Gia Chủ
+              Thi Công Chất Lượng, Đúng Tiến Độ & Giá Hợp Lý
             </h2>
             <p className="text-gray-500 text-xs sm:text-sm leading-relaxed">
-              Chúng tôi trực tiếp lựa giống cây cỏ bản địa dai sức tại nhà vườn bản xứ, bứng gốc trồng theo kỹ thuật đằm đất tơi xốp tự nhiên. Điều này đảm bảo cây phát triển khỏe khoắn mà không tốn kém tiền bạc mua phân thuốc hay dụng cụ chăm sóc đắt đỏ sau này.
+              Chúng tôi trực tiếp thi công với đội ngũ thợ nề lành nghề, sử dụng vật tư chính hãng có nguồn gốc rõ ràng. Tất cả công trình đều được giám sát chặt chẽ từ khâu nền móng đến hoàn thiện, đảm bảo chất lượng và an toàn lao động.
             </p>
 
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 mt-4">
@@ -128,8 +129,8 @@ export default function AboutPage() {
                   <ShieldCheck className="w-5 h-5" />
                 </div>
                 <div>
-                  <h4 className="font-bold text-sm text-forest-900">Tính trung thực tuyệt đối</h4>
-                  <p className="text-gray-500 text-xs mt-1 leading-relaxed">Luôn cung cấp đúng kích thước, chủng loại cây cảnh khỏe nhất được cam kết trên hợp đồng.</p>
+                  <h4 className="font-bold text-sm text-forest-900">Cam kết chất lượng</h4>
+                  <p className="text-gray-500 text-xs mt-1 leading-relaxed">Mọi hạng mục thi công đều tuân thủ tiêu chuẩn kỹ thuật, nghiệm thu kỹ lưỡng trước khi bàn giao.</p>
                 </div>
               </div>
 
@@ -138,8 +139,8 @@ export default function AboutPage() {
                   <Heart className="w-5 h-5" />
                 </div>
                 <div>
-                  <h4 className="font-bold text-sm text-forest-900">Tôn trọng hệ sinh thái</h4>
-                  <p className="text-gray-500 text-xs mt-1 leading-relaxed">Không dùng thuốc diệt cỏ nguy hại, ưu tiên dòng đất mẹ màu mỡ và sinh học an toàn.</p>
+                  <h4 className="font-bold text-sm text-forest-900">Minh bạch chi phí</h4>
+                  <p className="text-gray-500 text-xs mt-1 leading-relaxed">Báo giá chi tiết từng hạng mục, không phí ẩn, giúp gia chủ yên tâm kiểm soát ngân sách.</p>
                 </div>
               </div>
 
@@ -148,8 +149,8 @@ export default function AboutPage() {
                   <Award className="w-5 h-5" />
                 </div>
                 <div>
-                  <h4 className="font-bold text-sm text-forest-900">Bảo hành uy tín chu đáo</h4>
-                  <p className="text-gray-500 text-xs mt-1 leading-relaxed">Cam kết hỗ trợ chăm sóc tận nhà, thay thế các bụi cây suy yếu hoàn toàn miễn phi trong những tháng đầu bám rễ.</p>
+                  <h4 className="font-bold text-sm text-forest-900">Bảo hành uy tín</h4>
+                  <p className="text-gray-500 text-xs mt-1 leading-relaxed">Cam kết bảo hành dài hạn, hỗ trợ sửa chữa và bảo trì công trình sau bàn giao.</p>
                 </div>
               </div>
 
@@ -158,8 +159,8 @@ export default function AboutPage() {
                   <Compass className="w-5 h-5" />
                 </div>
                 <div>
-                  <h4 className="font-bold text-sm text-forest-900">Tinh tế từng thớ sỏi</h4>
-                  <p className="text-gray-500 text-xs mt-1 leading-relaxed">Đặt sự tập trung tối đa vào kỹ năng đặt hầm gối đá phong thủy dấp dính tựa thiên tạo bấy lâu.</p>
+                  <h4 className="font-bold text-sm text-forest-900">Đúng tiến độ</h4>
+                  <p className="text-gray-500 text-xs mt-1 leading-relaxed">Lập kế hoạch chi tiết, thi công đúng cam kết, bàn giao đúng hẹn cho gia chủ.</p>
                 </div>
               </div>
             </div>
@@ -190,11 +191,11 @@ export default function AboutPage() {
           <div className="text-center max-w-2xl mx-auto mb-16">
             <span className="text-xs uppercase font-bold text-forest-600 tracking-wider">Cách Chúng Tôi Làm Việc</span>
             <h3 className="font-serif text-2xl sm:text-4xl font-bold text-forest-950 mt-2">
-              Quy Trình 5 Bước Mộc Mạc
+              Quy Trình 5 Bước Chuyên Nghiệp
             </h3>
             <div className="w-12 h-0.5 bg-forest-300 mx-auto mt-3"></div>
             <p className="text-gray-500 text-xs sm:text-sm mt-3 leading-relaxed">
-              Không rườm rà bản vẽ đắt đỏ, chúng tôi làm việc trực tiếp tại thực địa, tối ưu hóa từng khâu để mang lại sân vườn đẹp nhất với chi phí tiết kiệm nhất.
+              Từ khâu khảo sát ban đầu đến bàn giao hoàn công, chúng tôi đảm bảo mỗi bước đều được thực hiện chu đáo, minh bạch và đúng tiến độ.
             </p>
           </div>
 
@@ -273,19 +274,23 @@ export default function AboutPage() {
 
         {/* Call to Action Section */}
         <section className="relative rounded-3xl overflow-hidden bg-forest-950 text-white p-8 sm:p-16 text-center shadow-lg">
-          <div className="absolute inset-0 opacity-10 bg-[radial-gradient(#fff_1px,transparent_1px)] [background-size:16px_16px]"></div>
+          <div className="absolute inset-0 opacity-10 bg-[radial-gradient(#fff_1px,transparent_1px)] bg-size-[16px_16px]"></div>
           <div className="relative z-10 max-w-3xl mx-auto flex flex-col gap-6 items-center">
-            <span className="text-xs font-bold text-emerald-400 uppercase tracking-widest">Liên hệ khảo sát miễn phí</span>
+            <span className="text-xs font-bold text-emerald-400 uppercase tracking-widest">Liên hệ tư vấn miễn phí</span>
             <h3 className="font-serif text-3xl sm:text-4.5xl font-bold leading-tight">
-              Biến Góc Sân Nhà Bạn Thành Thiên Đường Xanh
+              Biến Dự Án Của Bạn Thành Hiện Thực
             </h3>
             <p className="text-emerald-100/80 text-xs sm:text-sm leading-relaxed max-w-xl">
-              Nhấc máy gọi cho tổ thợ quê chúng tôi để được tư vấn thiết kế mặt bằng sơ bộ và khảo sát đất vườn tại nhà hoàn toàn không mất phí.
+              Hãy liên hệ ngay với chúng tôi để được khảo sát, tư vấn thiết kế và báo giá chi tiết hoàn toàn miễn phí. Đội ngũ chuyên nghiệp sẵn sàng lắng nghe và hỗ trợ bạn 24/7.
             </p>
-            <button className="mt-4 px-8 py-3.5 bg-white text-forest-950 font-bold rounded-full shadow-md hover:bg-emerald-50 hover:translate-y-[-2px] transition-all duration-300 flex items-center gap-2 text-sm focus:outline-hidden">
-              <span>Đăng Ký Tư Vấn Ngay</span>
+            <Link
+              to="/contact"
+              onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
+              className="mt-4 px-8 py-3.5 bg-white text-forest-950 font-bold rounded-full shadow-md hover:bg-emerald-50 hover:translate-y-[-2px] transition-all duration-300 flex items-center gap-2 text-sm focus:outline-hidden"
+            >
+              <span>Liên Hệ Ngay</span>
               <ArrowRight className="w-4 h-4" />
-            </button>
+            </Link>
           </div>
         </section>
       </div>
