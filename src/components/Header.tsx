@@ -129,7 +129,7 @@ export default function Header() {
               animate={{ opacity: 0.4 }}
               exit={{ opacity: 0 }}
               onClick={() => setIsOpen(false)}
-              className="fixed inset-y-0 inset-x-0 z-40 bg-black md:hidden"
+              className="fixed inset-y-0 h-screen inset-x-0 z-40 bg-black md:hidden"
             />
             {/* Drawer */}
             <motion.div
@@ -137,7 +137,7 @@ export default function Header() {
               animate={{ x: 0 }}
               exit={{ x: '100%' }}
               transition={{ type: 'tween', duration: 0.3 }}
-              className="fixed inset-y-0 right-0 z-40 w-72 max-w-sm bg-white shadow-2xl flex flex-col pt-24 pb-8 px-6 md:hidden"
+              className="fixed top-0 bottom-0 h-screen right-0 z-40 w-72 max-w-sm bg-white shadow-2xl flex flex-col pt-24 pb-8 px-6 md:hidden"
             >
               <div className="flex flex-col gap-5">
                 {menuItems.map((item) => (

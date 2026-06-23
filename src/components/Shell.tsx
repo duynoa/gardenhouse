@@ -7,7 +7,7 @@ export default function Shell() {
   const location = useLocation();
 
   return (
-    <div className="min-h-screen bg-[#fcfdfc] font-sans antialiased flex flex-col justify-between selection:bg-forest-100 selection:text-forest-900">
+    <div className="relative min-h-screen bg-[#fcfdfc] font-sans antialiased flex flex-col justify-between selection:bg-forest-100 selection:text-forest-900">
       <Header />
 
       <main className="grow">

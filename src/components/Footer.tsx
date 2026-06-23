@@ -28,10 +28,12 @@ export default function Footer() {
   ];
 
   const servicesLinks: { label: string; href: NavTarget }[] = [
-    { label: 'Thiết Kế & Thi Công Nhà Xanh', href: 'services' },
-    { label: 'Cải Tạo Không Gian Sống Xanh', href: 'services' },
-    { label: 'Hệ Thống Tường Cây & Mái Vườn', href: 'services' },
-    { label: 'Giải Pháp Cách Nhiệt Tự Nhiên', href: 'services' },
+    { label: 'Xây Nhà Cấp 4 Trọn Gói', href: 'services' },
+    { label: 'Biệt Thự & Nhà Phố Cao Cấp', href: 'services' },
+    { label: 'Thiết Kế Kiến Trúc & Nội Thất', href: 'services' },
+    { label: 'Sửa Chữa & Cải Tạo Nhà Cũ', href: 'services' },
+    { label: 'Sân Vườn & Thảm Cỏ Mộc Mạc', href: 'services' },
+    { label: 'Hồ Cá Koi & Hòn Non Bộ', href: 'services' },
   ];
 
   return (
@@ -55,7 +57,7 @@ export default function Footer() {
             </p>
             <div className="mt-4 p-4 w-fit rounded-xl bg-forest-900/40 border border-forest-800 text-xs flex items-center gap-2.5">
               <span className="w-2.5 h-2.5 rounded-full bg-emerald-500 animate-pulse block"></span>
-              <span>Tư vấn miễn phí: 08:00 - 18:00 (Thứ 2 - Thứ 7)</span>
+              <span>Tư vấn miễn phí: 08:30 - 17:00 (Thứ 2 - Thứ 7)</span>
             </div>
           </div>
 

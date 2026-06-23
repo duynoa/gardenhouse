@@ -322,7 +322,7 @@ export default function HomePage() {
                           </>
                         )}
                       </div>
-                      <h3 className="font-serif font-bold text-lg text-forest-950 mb-2 group-hover:text-forest-600 transition-colors">
+                      <h3 className="font-serif font-bold text-lg text-forest-950 group-hover:text-forest-600 transition-colors">
                         {project.name}
                       </h3>
                     </div>

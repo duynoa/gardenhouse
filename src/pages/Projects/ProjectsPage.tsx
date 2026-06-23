@@ -107,7 +107,7 @@ export default function ProjectsPage() {
               className="bg-white rounded-2xl overflow-hidden border border-forest-100 shadow-xs hover:shadow-lg transition-all duration-300 group flex flex-col justify-between cursor-pointer"
             >
               <div>
-                <div className="relative aspect-4/3 overflow-hidden bg-gray-100">
+                <div className="relative aspect-3/2 overflow-hidden bg-gray-100">
                   <img
                     src={coverImage}
                     alt={project.name}
@@ -122,7 +122,7 @@ export default function ProjectsPage() {
                   </div>
                 </div>
 
-                <div className="p-6">
+                <div className="px-6 py-3">
                   <div className="flex flex-wrap items-center gap-y-1 gap-x-3 text-xs font-semibold text-forest-600 mb-3">
                     <div className="flex items-center gap-1">
                       <MapPin className="w-3.5 h-3.5 text-forest-500" />
@@ -139,7 +139,7 @@ export default function ProjectsPage() {
                     )}
                   </div>
 
-                  <h3 className="font-serif font-bold text-lg text-forest-950 mb-2 group-hover:text-forest-600 transition-colors">
+                  <h3 className="font-serif font-bold text-lg text-forest-950 group-hover:text-forest-600 transition-colors">
                     {project.name}
                   </h3>
                 </div>

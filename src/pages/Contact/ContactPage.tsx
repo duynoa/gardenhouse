@@ -111,7 +111,7 @@ export default function ContactPage() {
 
           {/* Details column left - 5 columns */}
           <div className="lg:col-span-5 flex flex-col gap-8">
-            <div className="bg-forest-900 text-white rounded-3xl p-8 border border-forest-850 shadow-md relative overflow-hidden flex flex-col justify-between min-h-[320px]">
+            <div className="bg-forest-900 text-white rounded-3xl p-8 border border-forest-850 shadow-md relative overflow-hidden flex flex-col justify-between gap-2">
               <div className="absolute top-0 right-0 w-36 h-36 bg-emerald-500 rounded-bl-full z-0 opacity-10"></div>
 
               <div className="relative z-10 flex flex-col gap-2">

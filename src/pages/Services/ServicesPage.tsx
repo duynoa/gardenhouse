@@ -60,7 +60,7 @@ export default function ServicesPage() {
       image: 'https://images.unsplash.com/photo-1618221195710-dd6b41faaea6?auto=format&fit=crop&w=800&q=80',
       basePrice: 150000,
       features: [
-        'Phối cảnh 3D渲染 từng không gian phòng khách, phòng bếp, phòng ngủ',
+        'Phối cảnh 3D từng không gian phòng khách, phòng bếp, phòng ngủ',
         'Bản vẽ kỹ thuật chi tiết cho thợ thi công chuẩn milimet',
         'Tư vấn chọn vật liệu hoàn thiện phù hợp khí hậu Quảng Ngãi',
         'Giám sát tác giả 2 buổi/tuần suốt quá trình thi công'
@@ -91,7 +91,7 @@ export default function ServicesPage() {
       description: 'Lắp đặt thảm cỏ Nhật xanh mướt, dải sỏi tự nhiên mộc mạc và bày trí cây ăn quả, hoa cỏ quanh sân.',
       detailedDescription: 'Phù hợp cho nhà vườn Quảng Ngãi lẫn nhà ống đô thị. Chúng tôi bố trí mặt bằng khoa học, bọc thảm cỏ nhung Nhật xanh mướt mềm mịn chân, bón lót phân vi sinh hữu cơ để cây phát triển lâu dài. Các loại cây được chọn chịu nắng nóng, ưa khô ráo phù hợp khí hậu miền Trung.',
       iconName: 'Trees',
-      image: 'https://images.unsplash.com/photo-1540555700478-4be289fbecef?auto=format&fit=crop&w=800&q=80',
+      image: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS16WtTQxbh0eC9ZSBZBXIWY_iP1w5Qr9t4TQ&s',
       basePrice: 150000,
       features: [
         'Mẫu phác thảo mặt bằng cảnh quan miễn phí',
@@ -106,7 +106,7 @@ export default function ServicesPage() {
       description: 'Đắp tiểu cảnh non bộ xi măng-dừa, xếp đá cuội tự nhiên kết hợp hồ lọc vi sinh cá Koi khỏe đẹp.',
       detailedDescription: 'Thợ cả đắp hòn non bộ bằng lõi thép xi măng tạo thế núi trùng điệp sương khói rêu phong. Hồ lọc nước cá Koi tự chế vi sinh bằng bồn chứa lắng lọc cát, sỏi, xỉ nham thạch giúp nước trong vắt. Thiết kế chịu được nắng nóng và mưa lũ ven sông — điển hình khí hậu Quảng Ngãi.',
       iconName: 'Paintbrush',
-      image: 'https://images.unsplash.com/photo-1558905612-4ee4eb15891d?auto=format&fit=crop&w=800&q=80',
+      image: '/1.jpg',
       basePrice: 950000,
       features: [
         'Khảo sát hướng đón gió đón nắng kỹ lưỡng',
@@ -121,7 +121,7 @@ export default function ServicesPage() {
       description: 'Bày khuôn đất trồng cây ăn quả sum suê bưởi, cam, mít kết hợp giàn rau sạch mát lành cho bữa cơm quê.',
       detailedDescription: 'Mang hương vị quê hương Quảng Ngãi vào khoảng sân trống. Thiết kế quy hoạch bồn rau xanh, giàn leo bầu bí mát mẻ kết hợp trồng cỏ nhung Nhật đi kèm các bụi hoa dân dã nở quanh năm. Các giống cây ăn quả được chọn phù hợp đất đai miền Trung — bưởi, cam, mít, ổi đều sai quả.',
       iconName: 'Droplets',
-      image: 'https://images.unsplash.com/photo-1512917774080-9991f1c4c750?auto=format&fit=crop&w=800&q=80',
+      image: '/2.webp',
       basePrice: 120000,
       features: [
         'Quy hoạch vùng trồng cây bóng mát và nông sản',
@@ -136,7 +136,7 @@ export default function ServicesPage() {
       description: 'Tận dụng góc sân trống, ban công chật hẹp bố trí tiểu cảnh mộc mạc — khay treo, máng sỏi, lu nước nhỏ thư thái.',
       detailedDescription: 'Giải quyết các góc chết khô khan ở sân trước, sân sau hay hành lang ban công chật hẹp. Chúng tôi đắp bể đá bồn sỏi dạt dào nước róc rách, treo giỏ hoa tươi mang sinh cảnh đồng quê tĩnh lặng giữa phố xá. Phù hợp nhà phố Quảng Ngãi diện tích hạn chế.',
       iconName: 'Layers',
-      image: 'https://images.unsplash.com/photo-1507089947368-19c1da9775ae?auto=format&fit=crop&w=800&q=80',
+      image: '/4.jpg',
       basePrice: 350000,
       features: [
         'Module chậu thông minh chống chảy nước bẩn ra sàn',

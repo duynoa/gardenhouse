@@ -1,10 +1,10 @@
-@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&display=swap");
 @import "tailwindcss";
 
 @theme {
   --font-sans: "Plus Jakarta Sans", ui-sans-serif, system-ui, sans-serif;
   --font-serif: "Playfair Display", ui-serif, Georgia, serif;
-  
+
   --color-forest-50: #f4f7f4;
   --color-forest-100: #e5ece5;
   --color-forest-200: #ccdacc;
@@ -40,7 +40,9 @@
   border-radius: 1rem;
   margin: 1.5rem auto;
   display: block;
-  box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+  box-shadow:
+    0 4px 6px -1px rgb(0 0 0 / 0.1),
+    0 2px 4px -2px rgb(0 0 0 / 0.1);
 }
 .project-rich-content p {
   margin-bottom: 1rem;
@@ -60,4 +62,8 @@
 }
 .project-rich-content figure img {
   width: 100% !important;
+}
+
+button {
+  cursor: pointer;
 }
