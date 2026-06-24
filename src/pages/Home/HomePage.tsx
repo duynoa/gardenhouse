@@ -121,7 +121,7 @@ export default function HomePage() {
               className="font-serif text-4xl sm:text-5xl lg:text-6.5xl font-bold text-white leading-[1.12]"
             >
               Xây Dựng Ngôi Nhà <br />
-              <span className="text-emerald-400 italic font-semibold">Mơ Ước</span> Vững Bền Theo Thời Gian
+              <span className="text-emerald-400 italic font-semibold">Thiết kế</span> Vững Bền Theo Thời Gian
             </motion.h1>
 
             <motion.p
