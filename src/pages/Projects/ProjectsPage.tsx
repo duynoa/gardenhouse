@@ -88,11 +88,11 @@ export default function ProjectsPage() {
             <p className="text-gray-500 text-xs mt-3 font-semibold">Đang tải danh sách công trình...</p>
           </div>
         ) : error ? (
-          <div className="text-center py-16 bg-white rounded-2xl border border-forest-100 max-w-md mx-auto p-6 shadow-xs">
+          <div className="mb-10 text-center py-16 bg-white rounded-2xl border border-forest-100 max-w-md mx-auto p-6 shadow-xs">
             <p className="text-gray-500 text-sm">{error}</p>
           </div>
         ) : filteredProjects.length === 0 ? (
-          <div className="text-center py-16 bg-white rounded-2xl border border-forest-100 max-w-md mx-auto p-6 shadow-xs">
+          <div className="mb-10 text-center py-16 bg-white rounded-2xl border border-forest-100 max-w-md mx-auto p-6 shadow-xs">
             <p className="text-gray-500 text-sm">Chưa có công trình nào được công bố.</p>
           </div>
         ) : (
