@@ -4,9 +4,10 @@ interface SEOProps {
   title: string;
   description: string;
   keywords?: string;
+  ogImage?: string;
 }
 
-export default function SEO({ title, description, keywords }: SEOProps) {
+export default function SEO({ title, description, keywords, ogImage }: SEOProps) {
   useEffect(() => {
     // Cập nhật thẻ tiêu đề
     document.title = title ? `${title} | Garden House` : 'Garden House - Thi Công Sân Vườn, Ao Cá Bình Dân';
@@ -31,9 +32,20 @@ export default function SEO({ title, description, keywords }: SEOProps) {
       metaKeywords.setAttribute('content', keywords);
     }
 
+    // Cập nhật OG image nếu có
+    if (ogImage) {
+      let ogImageMeta = document.querySelector('meta[property="og:image"]');
+      if (!ogImageMeta) {
+        ogImageMeta = document.createElement('meta');
+        ogImageMeta.setAttribute('property', 'og:image');
+        document.head.appendChild(ogImageMeta);
+      }
+      ogImageMeta.setAttribute('content', ogImage);
+    }
+
     // Scroll to top khi chuyển trang để cải thiện trải nghiệm người dùng
     window.scrollTo({ top: 0, behavior: 'instant' });
-  }, [title, description, keywords]);
+  }, [title, description, keywords, ogImage]);
 
   return null;
 }

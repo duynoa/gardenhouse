@@ -1,34 +1,23 @@
-import { useParams, Link, useNavigate } from 'react-router-dom';
-import { useState, useEffect } from 'react';
 import {
   ArrowLeft,
-  MapPin,
-  CheckCircle2,
-  PhoneCall,
-  Loader2,
-  ShieldCheck,
-  Package,
-  Star,
-  Wrench,
-  Clock,
-  Users,
-  ThumbsUp,
   BadgeCheck,
-  Recycle
+  CheckCircle2,
+  Clock,
+  Loader2,
+  MapPin,
+  PhoneCall,
+  Recycle,
+  ShieldCheck,
+  Star,
+  ThumbsUp,
+  Users,
+  Wrench
 } from 'lucide-react';
+import { useEffect, useState } from 'react';
+import { Link, useNavigate, useParams } from 'react-router-dom';
+import SEO from '../../components/SEO';
 import { projectApi } from '../../lib/admin/api/services';
 import { Project } from '../../lib/admin/types';
-import SEO from '../../components/SEO';
-
-function extractImagesFromHtml(html: string): string[] {
-  const imgRegex = /<img[^>]+src="([^">]+)"/g;
-  const images: string[] = [];
-  let match;
-  while ((match = imgRegex.exec(html)) !== null) {
-    images.push(match[1]);
-  }
-  return images;
-}
 
 const CONSTRUCTION_STEPS = [
   {
@@ -64,15 +53,6 @@ const PROJECT_FEATURES = [
   'Bảo hành bảo dưỡng miễn phí 6 tháng đầu',
   'Tư vấn khảo sát hoàn toàn miễn phí tận nơi',
   'Giá bình dân, phù hợp túi tiền gia đình Việt'
-];
-
-const MATERIALS = [
-  'Cỏ nhung Nhật chuẩn loại 1 trồng tại Đà Lạt',
-  'Đá cuội tự nhiên khai thác tại Ninh Bình, Yên Bái',
-  'Đất thịt màu mỡ phù sa trộn phân hữu cơ vi sinh',
-  'Xi măng mác cao chống thấm chuyên dụng Sika',
-  'Cây giống sạch bệnh, rễ khoẻ từ vườn ươm uy tín',
-  'Hệ thống ống tưới nhỏ giọt tiết kiệm nước'
 ];
 
 const GUARANTEES = [
@@ -163,8 +143,7 @@ export default function ProjectDetailPage() {
     );
   }
 
-  const gallery = extractImagesFromHtml(project.summary);
-  const images = gallery.length > 0 ? gallery : [project.mainImage ? [project.mainImage] : []].flat();
+  const images = project.mainImage ? [project.mainImage] : [];
 
   const seoTitle = project.name;
   const seoDescription = `${project.name} tại ${project.address}. Chi tiết công trình do Garden House thi công.`;
@@ -172,7 +151,7 @@ export default function ProjectDetailPage() {
 
   return (
     <div className="bg-forest-50/20 py-10">
-      <SEO title={seoTitle} description={seoDescription} keywords={seoKeywords} />
+      <SEO title={seoTitle} description={seoDescription} keywords={seoKeywords} ogImage={images[0]} />
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
 
