@@ -391,7 +391,7 @@ export default function ProjectDetailPage() {
             className="shrink-0 inline-flex items-center justify-center gap-2 bg-emerald-500 hover:bg-emerald-600 text-white font-bold text-sm py-4 px-8 rounded-xl transition-all duration-300 shadow-md cursor-pointer whitespace-nowrap"
           >
             <PhoneCall className="w-4 h-4" />
-            Gọi ngay: 078.949.0590
+            Gọi ngay: 0789.490.590
           </a>
         </div>
 

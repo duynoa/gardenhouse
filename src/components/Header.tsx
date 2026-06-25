@@ -89,7 +89,7 @@ export default function Header() {
               className="flex items-center gap-2 text-sm font-semibold text-forest-700 hover:text-forest-500 transition-colors"
             >
               <PhoneCall className="w-4 h-4 text-forest-500" />
-              <span>078.949.0590</span>
+              <span>0789.490.590</span>
             </a>
             <button
               onClick={handleBookSurvey}
@@ -167,7 +167,7 @@ export default function Header() {
                   className="flex items-center gap-3 text-forest-700 font-bold text-lg mb-4 px-2"
                 >
                   <PhoneCall className="w-5 h-5 text-forest-500" />
-                  <span>078.949.0590</span>
+                  <span>0789.490.590</span>
                 </a>
                 <button
                   onClick={() => {

@@ -121,7 +121,7 @@ export default function HomePage() {
               className="font-serif text-4xl sm:text-5xl lg:text-6.5xl font-bold text-white leading-[1.12]"
             >
               Xây Dựng Ngôi Nhà <br />
-              <span className="text-emerald-400 italic font-semibold">Thiết kế</span> Vững Bền Theo Thời Gian
+              <span className="text-emerald-400 italic font-semibold">Mơ Ước</span> Vững Bền Theo Thời Gian
             </motion.h1>
 
             <motion.p
@@ -130,7 +130,7 @@ export default function HomePage() {
               transition={{ duration: 0.7, delay: 0.2 }}
               className="text-base sm:text-lg text-gray-300 leading-relaxed max-w-2xl"
             >
-              Chúng tôi nhận thi công xây dựng nhà ở, biệt thự, cải tạo và sửa chữa công trình với đội ngũ thợ nề lành nghề, vật tư chính hãng, giám sát chặt chẽ từng hạng mục, bàn giao đúng tiến độ với chi phí hợp lý.
+              Chúng tôi nhận thiết kế và thi công xây dựng nhà ở, biệt thự, cải tạo và sửa chữa công trình với đội ngũ thợ nề lành nghề, vật tư chính hãng, giám sát chặt chẽ từng hạng mục, bàn giao đúng tiến độ với chi phí hợp lý.
             </motion.p>
 
             <motion.div

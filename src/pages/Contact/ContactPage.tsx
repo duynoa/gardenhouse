@@ -98,7 +98,7 @@ export default function ContactPage() {
         <div className="text-center max-w-3xl mx-auto flex flex-col gap-4 mb-16 animate-fade-in">
           <span className="text-xs uppercase font-bold text-forest-600 tracking-[0.2em] block">Lời hẹn kết nối</span>
           <h1 className="font-serif text-3xl sm:text-5xl font-bold tracking-tight text-forest-950">
-            Tư Vấn & Đo Đạc Sân Vườn Miễn Phí
+            Tư Vấn & Đo Đạc Miễn Phí
           </h1>
           <div className="w-16 h-1 bg-forest-400 mx-auto rounded-full"></div>
           <p className="text-gray-500 text-sm leading-relaxed max-w-2xl mx-auto">
@@ -137,7 +137,7 @@ export default function ContactPage() {
                 </div>
                 <div>
                   <h4 className="font-bold text-xs uppercase text-gray-500 tracking-wider">Trụ sở & Văn phòng</h4>
-                  <p className="font-bold text-forest-950 text-sm mt-1 leading-tight">11 Trương Định, Phường Nghĩa Lộ, TP. Quảng Ngãi</p>
+                  <p className="font-bold text-forest-950 text-sm mt-1 leading-tight">15 Trương Định, Phường Nghĩa Lộ, TP. Quảng Ngãi</p>
                   <p className="text-xs text-gray-400 mt-1 leading-relaxed">Mr. Khôi - phụ trách dự án</p>
                 </div>
               </div>
@@ -161,7 +161,7 @@ export default function ContactPage() {
                 </div>
                 <div>
                   <h4 className="font-bold text-xs uppercase text-gray-500 tracking-wider">Hòm thư điện tử</h4>
-                  <a href="mailto:lienhe@gardenhouse.com" className="font-bold text-forest-950 hover:text-forest-600 text-sm mt-1 block">lienhe@gardenhouse.com</a>
+                  <a href="mailto:thienmocgreen@gmail.com" className="font-bold text-forest-950 hover:text-forest-600 text-sm mt-1 block">thienmocgreen@gmail.com</a>
                 </div>
               </div>
             </div>

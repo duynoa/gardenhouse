@@ -49,6 +49,9 @@ export default function Footer() {
                   Garden House
                 </span>
                 <p className="text-xs text-gray-400">Không Gian Sống Xanh, Nhà Ở Mát Mẻ</p>
+                <p className="text-[10px] text-gray-500 italic mt-0.5">
+                  Thành viên của Công ty TNHH Đầu Tư Xây Dựng & Cảnh Quan Thiên Mộc
+                </p>
               </div>
 
             </div>
@@ -110,7 +113,7 @@ export default function Footer() {
             </div>
             <div>
               <p className="text-xs text-gray-500 font-semibold uppercase">Văn phòng chính</p>
-              <p className="text-white text-xs mt-0.5">11 Trương Định, Phường Nghĩa Lộ, TP. Quảng Ngãi</p>
+              <p className="text-white text-xs mt-0.5">15 Trương Định, Phường Nghĩa Lộ, TP. Quảng Ngãi</p>
             </div>
           </div>
           <div className="flex items-center gap-3">
@@ -119,7 +122,7 @@ export default function Footer() {
             </div>
             <div>
               <p className="text-xs text-gray-500 font-semibold uppercase">Tổng đài tư vấn</p>
-              <a href="tel:0789490590" className="text-white text-xs hover:text-emerald-400 block mt-0.5">078.949.0590</a>
+              <a href="tel:0789490590" className="text-white text-xs hover:text-emerald-400 block mt-0.5">0789.490.590</a>
             </div>
           </div>
           <div className="flex items-center gap-3">
@@ -128,14 +131,14 @@ export default function Footer() {
             </div>
             <div>
               <p className="text-xs text-gray-500 font-semibold uppercase">Tư vấn không gian xanh</p>
-              <a href="mailto:lienhe@gardenhouse.com" className="text-white text-xs hover:text-emerald-400 block mt-0.5">lienhe@gardenhouse.com</a>
+              <a href="mailto:thienmocgreen@gmail.com" className="text-white text-xs hover:text-emerald-400 block mt-0.5">thienmocgreen@gmail.com</a>
             </div>
           </div>
         </div>
 
         {/* Legal and copy bar */}
         <div className="border-t border-forest-900/60 pt-6 flex justify-center items-center text-xs text-gray-500 gap-4">
-          <p>© {new Date().getFullYear()} Garden House. Tất cả bản quyền được bảo lưu.</p>
+          <p>© 2017 Garden House. Tất cả bản quyền được bảo lưu.</p>
         </div>
       </div>
     </footer>
