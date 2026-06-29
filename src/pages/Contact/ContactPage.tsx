@@ -149,7 +149,7 @@ export default function ContactPage() {
                 </div>
                 <div>
                   <h4 className="font-bold text-xs uppercase text-gray-500 tracking-wider">Bộ phận đường dây nóng</h4>
-                  <a href="tel:0789490590" className="font-bold text-forest-950 hover:text-forest-600 text-sm mt-1 block">Mr. Khôi: 078.9490.590</a>
+                  <a href="tel:0789490590" className="font-bold text-forest-950 hover:text-forest-600 text-sm mt-1 block">Mr. Khôi: 0789.490.590</a>
                   <p className="text-xs text-gray-400 mt-0.5 leading-relaxed">Zalo: 0789490590</p>
                 </div>
               </div>
