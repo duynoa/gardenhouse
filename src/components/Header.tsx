@@ -56,7 +56,7 @@ export default function Header() {
             onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
             className="flex items-center gap-3 cursor-pointer group"
           >
-            <img src="/logo.png" alt="Garden House" width={60} height={60} className="rounded-lg"/>
+            <img src="/logo1.png" alt="Garden House" width={60} height={60} className="rounded-lg"/>
           </Link>
 
           {/* Desktop Navigation */}

@@ -43,7 +43,7 @@ export default function Footer() {
           {/* Brand & Mission */}
           <div className="flex flex-col gap-4 col-span-1 md:col-span-2">
             <div className="flex items-center gap-3">
-              <img src="/logo.png" alt="Garden House" width={60} height={60} className="rounded-lg" />
+              <img src="/logo1.png" alt="Garden House" width={60} height={60} className="rounded-lg" />
               <div className="flex flex-col gap-1">
                 <span className="font-serif text-xl font-bold tracking-tight text-white">
                   Garden House
